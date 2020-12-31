@@ -1,0 +1,379 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Andreas Dittes" />
+
+    <title>Silvester Countdown - 🎉 Countdown bis Silvester 2021</title>
+    <meta name="description" content="Wie viele Sekunden sind es noch bis Neujahr? Auf unserem Silvester Countdown Timer zeigen wir dir die verbleibende Zeit bis zum Jahreswechsel!"/>
+
+    <meta property="og:title" content="Silvester Countdown"/>
+    <meta property="og:type" content="cause"/>
+    <meta property="og:url" content="https://www.silvestercountdown.de/"/>
+    <meta property="og:image" content="https://www.silvestercountdown.de/silvestercountdown.jpg"/>
+    <meta property="og:site_name" content="Silvester Countdown"/>
+    <meta property="fb:admins" content="500108777"/>
+    <meta property="og:description" content="Hier findest du den Silvester Countdown! Wir z&auml;hlen die Zeit r&uuml;ckw&auml;rts bis Mitternacht - schau einfach mal rein."/>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/landing-page.css" rel="stylesheet">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-18304660-8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-18304660-8');
+    </script>
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <script src="js/countdown.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    
+    <style>
+      *, *:before, *:after {
+      box-sizing: border-box;
+    }
+
+    #barker {
+      margin: 0 auto;
+      max-width: 1140px;
+      background-size: 1140px auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #content {
+      position: relative;
+      z-index: 10;
+      font-family: sans-serif;
+      color: white;
+      height: 100%;
+    }
+
+    .label {
+        display: block;
+    }
+
+    #orioles-o {
+      width: 30px;
+    }
+    @media (max-width: 1139px) {
+      #orioles-o {
+        width: 26px;
+        margin-left: 4px;
+      }
+    }
+    @media (max-width: 900px) {
+      #orioles-o {
+        width: 25px;
+      }
+    }
+    @media (max-width: 900px) {
+      #orioles-o {
+        width: 20px;
+      }
+    }
+
+    #timer {
+      width: 100%;
+      height: 100%;
+      line-height: 100px;
+      text-align: center;
+    }
+    @media (max-width: 1139px) {
+      #timer {
+        width: 100%;
+      }
+    }
+    @media (max-width: 900px) {
+      #timer {
+        height: auto;
+        line-height: 1;
+        float: left;
+        width: 100%;
+      }
+    }
+    @media (max-width: 630px) {
+      #timer {
+        float: none;
+        width: auto;
+      }
+    }
+    #timer > div {
+      display: inline-block;
+      vertical-align: middle;
+      text-align: center;
+      position: relative;
+      margin: 0 10px;
+    }
+    @media (max-width: 630px) {
+      #timer > div {
+        margin: 0 5px;
+      }
+    }
+
+    .time {
+      height: 170px;
+      width: 210px;
+      border: 2px solid white;
+      font-size: 130px;
+      line-height: 160px;
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+    @media (max-width: 1139px) {
+      .time {
+        height: 110px;
+        width: 140px;
+        font-size: 80px;
+        line-height: 100px;
+      }
+    }
+    @media (max-width: 630px) {
+      .time {
+        height: 50px;
+        width: 60px;
+        font-size: 34px;
+        line-height: 50px;
+      }
+    }
+
+    .label {
+      font-size: 16px;
+      line-height: 1;
+      padding: 10px 0 8px 0;
+      width: 100%;
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+    @media (max-width: 900px) {
+      .label {
+        font-size: 12px;
+        padding: 7px 0 5px 0;
+      }
+    }
+
+    #mobile-sponsor {
+      display: none;
+      float: right;
+      width: 25%;
+      text-align: center;
+      font-size: 14px;
+    }
+    @media (max-width: 900px) {
+      #mobile-sponsor {
+        display: block;
+      }
+    }
+    @media (max-width: 630px) {
+      #mobile-sponsor {
+        float: none;
+        width: auto;
+        background-color: #111111;
+        margin-top: 5px;
+        padding: 5px 0;
+      }
+      #mobile-sponsor .logo img {
+        width: 90px;
+      }
+    }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <h4>Silvester-Countdown</h4>
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                 <ul class="nav navbar-nav navbar-right">
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Header -->
+    <div class="intro-header">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="intro-message">
+                        <h2>Silvester Countdown</h2>
+                        <h6>Der Online Silvester Countdown 2021 🎉</h6>
+
+                      </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="barker">
+        <div id="barker-overlay"></div>
+        <div id="content">
+        <div id="timer">
+        <div id="days">
+        <div class="time"></div>
+        <div class="label">TAGE</div>
+        </div>
+        <div id="hours">
+        <div class="time"></div>
+        <div class="label">STUNDEN </div>
+        </div>
+        <div id="minutes">
+        <div class="time"></div>
+        <div class="label">MINUTEN</div>
+        </div>
+        <div id="seconds">
+        <div class="time"></div>
+        <div class="label">SEKUNDEN</div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <script id="rendered-js">
+              var app = {
+
+          init: function () {
+
+            app.loop_time();
+
+          },
+
+          loop_time: function () {
+
+            setTimeout(function () {
+              app.pop_time();
+              app.loop_time();
+            }, 1000);
+
+          },
+
+          pop_time: function () {
+
+            //Create timespan by passing in year, month, day, hour, and minute
+
+            //Silvester
+            var year = new Date().getFullYear() + 1;
+            var month = 0; //(months are 0-11)
+            var day = 1;
+            var hour = 0; //(hours are 0-23)
+            var min = 0;
+
+            var timespan = countdown(new Date(year, month, day, hour, min), null, countdown.DAYS | countdown.HOURS | countdown.MINUTES | countdown.SECONDS);
+
+            //Update each number
+            $("#days .time").text(timespan.days);
+            $("#hours .time").text(timespan.hours);
+            $("#minutes .time").text(timespan.minutes);
+            $("#seconds .time").text(timespan.seconds);
+
+          } };
+
+
+
+        $(document).ready(function () {
+          app.init();
+        });
+        </script>
+
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="intro">
+      
+                        <br /><br /><br />
+                        <div style="width: 340px;background-color: rgba(0, 0, 0, 0.6);margin: 0 auto;padding: 10px 10px 10px 10px;text-align: left;">
+                        <p><h6>Was sind deine Neujahrsvorsätze? Hier ein paar Ideen:</h6></p>
+                        <ul>
+                          <li><a href="https://amzn.to/3aJ5GL0" target="_blank">Mit dem Rauchen aufhören</a>*</li>
+                          <li><a href="https://www.digistore24.com/redir/116821/dittes/" target="_blank">Glücklicher sein</a>*</li>
+                          <li><a href="https://amzn.to/2KSqNj4" target="_blank">Mehr Sport machen</a>*</li>
+                          <li><a href="https://silvestercountdown.com/vorsatz.html" target="_blank">Weitere Neujahrsvorsätze</a>*</li>
+                        </ul>
+                        </div>
+                        
+                        <p><h6>Zeig deinen Freuden, wie lange es noch bis Silvester dauert:</h6></p>
+                        <br />
+                        <p>
+                        <a href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fsilvestercountdown.de" class="btn btn-social btn-facebook link-in-popup">
+                        <i class="fa fa-facebook"></i> per Facebook teilen</i>
+                        </a> 
+                        <a href="whatsapp://send?text=Hier der Countdown für Silvester: https://silvestercountdown.de" class="btn btn-social btn-success link-in-popup">
+                        <i class="fa fa-whatsapp"></i> per Whatsapp teilen</i>
+                        </a>
+                        </p><br /><br /><br />
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.intro-header -->
+<br /><br />
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <p class="copyright text-muted">Willkommen beim <strong>Silvester Countdown</strong> - der Silvester-Uhr, die dir anzeigt, wie viele Tage es bis Silvester ist. Der Countdown zählt bis Neujahr runter. Diese Webseite wird ermöglicht dank der netten Unterstützung von <a href="https://mavum.com/">Keynote Speaker von Mavum</a>. </p>
+                    <p>Silvester ist eine sehr spannende Jahreszeit. Teilweise auch als Altjahrestag bezeichnet ist es das Jahresendfest. Im Heiligenkalender ist Silvester der Gedenktag des Pastes Silvester I. Wichtige Brauchtümer haben sich im Laufe der Geschichte stark geändert. Die Römer hatten schon 150 v. Christi Geburt den Jahreswechsel gefeiert. Heute sind die Klassiker im Fernsehen "Dinner for One" und Comedy-Sendungen. Stark mit Silvester verknüpft sind auch Bleigießen, Silvesterläufe und natürlich der Blick auf die Uhr oder den Silvester-Countdown. Viele Menschen zählen auch die letzten 10 Sekunden rückwärts - vor allem bei größeren Versammlungen. Da es sich bei Silvester um einen festen Zeitpunkt - eben den Jahreswechsel - handelt, kann man sich auch schon das ganze Jahr auf diesen Moment vorbereiten. </p>
+                    <p>Falschschreibweisen gibt es natürlich auch - die bekannteste ist Sylvester oder Sylvester-Countdown in unserem Fall. Wir wünschen dir auf jeden Fall eine tolle Silvester-party und einen guten Rutsch ins neue Jahr.</p>
+                    <p>Wie gehen wir mit Corona zu Silvester um? Durch die Kontaktbeschränkungen ist es nicht so einfach. Wie gehen wir also mit Corona um an Silvester? Was sind die Silvester Corona Regeln in Berlin? Aktuell gibt es folgende Regeln. Bitte beachte, dass diese sich auch immer wieder ändern könen.<br />
+<ul>
+<li>Es dürfen sich maximal fünf Personen treffen.</li>
+<li>Die Personen dürfen höchstens zwei Haushalten angehörigen.</li>
+<li>Kinder bis zu zwölf Jahren werden nicht mitgezählt.</li></ul>
+<p>Feuerwerk an Silvester mit Corona? An öffentlichen Plätzen wird es kein Fuerwerk geben, um die Kontaktbeschränkungen einzuhalten. Für sich privat kann man das machen, allerdings ist auch der Verkauf sehr eingeschränkt.</p>
+<p>Ideen für Silvester zu Corona? Welche Ideen gibt es für das Corona-Silvester? Was kann man machen zu Silvester in Zeiten von Corona? Durch die Kontaktbeschränkungen ist vor allem eine Idee hier spannend: Online-Meetings. Damit kann man sich auch mit Distanz zuprosten und zumindest etwas gemeinsam feiern.</p>
+                    <p>Der Silvester Countdown ist ein <a href="http://4hourventure.com" rel="nofollow">4 hour venture</a> von <a href="http://andreasdittes.com" rel="Andreas Dittes">Andreas Dittes</a>. <a href="http://4hourventure.com/imprint" rel="nofollow">Impressum</a>.<br /></p>
+                    <p>* Werbelinks, hier wird eine Provision gezahlt, wenn ein entsprechender Verkauf oder eine Anmeldung erzeugt wird.</p>
+                </div>
+                <div class="col-md-4">
+                            <a href="https://www.pyroweb.de/"><img src="img/poweredbypyroweb.png" align="right" /></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
